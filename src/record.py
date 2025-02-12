@@ -172,8 +172,9 @@ class StudentRecord:
                     continue
 
                 else:
-                    print("Extending assignments: " + str(assignment.get_gradescope_assignment_urls()))
+                    print(f"Extending assignments: [{assignment.get_name()}] " + str(assignment.get_gradescope_assignment_urls()))
                     warnings = gradescope.apply_extension(
+                        assignment_name=assignment.get_name(),
                         assignment_urls=assignment.get_gradescope_assignment_urls(),
                         email=self.get_email(),
                         num_days=num_days,
